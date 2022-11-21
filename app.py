@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 #import libraries
 import numpy as np
 from flask import Flask, request, jsonify, render_template
@@ -17,33 +11,13 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
-# In[23]:
 
-
-
-
-
-# In[25]:
-
-
-predict_price('2nd Stage Nagarbhavi',2000,2,2)
-
-
-# In[ ]:
-
-
-
-
-
-# In[35]:
 
 
 #Initialize the flask App
 app = Flask(__name__, template_folder="templates", static_folder='static')
 
 model11 = pickle.load(open('model_main_prop.pkl', 'rb'))
-
-#locality,total_sqft,bath,bhk
 
 train_data = pd.read_csv('train_data_3_blore.csv')
 
@@ -68,7 +42,6 @@ def home():
     return render_template('index1.html')
 
 
-#To use the predict button in our web-app
 @app.route('/predict',methods=['POST'])
 def predict():
     '''
@@ -87,16 +60,3 @@ def predict():
 
 if __name__ == "__main__":
     app.run()
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
